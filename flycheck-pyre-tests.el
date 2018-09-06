@@ -1,5 +1,4 @@
-;;; flycheck-pyre-tests.el --- Support Pyre in flycheck
-;;; -*- lexical-binding: t -*-
+;;; flycheck-pyre-tests.el --- Support Pyre in flycheck -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2018 Vyacheslav Linnik <vyacheslav.linnik@gmail.com>
 ;; License: MIT
