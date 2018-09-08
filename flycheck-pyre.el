@@ -53,13 +53,13 @@
 (defun flycheck-pyre-filter-by-filepath(pyre-errors filepath)
   "Filter PYRE-ERRORS by specific FILEPATH."
   (cl-remove-if-not
-   (lambda (pyre-error)
-     (string-match-p
-      (flycheck-pyre-decode-filepath pyre-error) filepath)) pyre-errors))
+   #'(lambda (pyre-error)
+       (string-match-p
+        (flycheck-pyre-decode-filepath pyre-error) filepath)) pyre-errors))
 
 (defun flycheck-pyre-decode-error-data (pyre-errors checker buffer)
   "Build list of flycheck errors from PYRE-ERRORS list by a CHECKER for a BUFFER."
-  (mapcar (lambda (x) (flycheck-pyre-decode-pyre-error x checker buffer)) pyre-errors))
+  (mapcar #'(lambda (x) (flycheck-pyre-decode-pyre-error x checker buffer)) pyre-errors))
 
 (defun flycheck-pyre-decode-filepath (pyre-error)
   "Decode filepath from the PYRE-ERROR."
