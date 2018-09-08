@@ -5,7 +5,7 @@
 ;;
 ;; Author: Vyacheslav Linnik <vyacheslav.linnik@gmail.com>
 ;; Version: 2018.09.03
-;; Package-Requires: (flycheck cl-lib json)
+;; Package-Requires: ((emacs "24") (flycheck "29"))
 
 ;;; Commentary:
 
