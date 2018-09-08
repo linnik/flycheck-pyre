@@ -56,7 +56,8 @@
     (should (string= (flycheck-error-filename item) "module/example.py"))
     (should (string= (flycheck-error-message item) "Undefined attribute [16]: Optional type has no attribute `__getitem__`."))))
 
-(setq pyre-errors "[\
+
+(defconst pyre-errors "[\
   {\
     \"line\": 76,\
     \"column\": 31,\
