@@ -15,6 +15,8 @@
 
 ;; (require 'flycheck-pyre)
 ;; (add-hook 'python-mode-hook 'flycheck-mode)
+;; (eval-after-load 'flycheck
+;;   '(add-hook 'flycheck-mode-hook #'flycheck-pyre-setup))
 
 ;;; Code:
 (require 'flycheck)
