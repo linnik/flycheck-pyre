@@ -57,6 +57,10 @@
     (should (string= (flycheck-error-message item) "Undefined attribute [16]: Optional type has no attribute `__getitem__`."))))
 
 
+(ert-deftest test-pyre-stderr()
+  "Test whether parsing invalid Pyre output raises a user error."
+  (should-error (flycheck-pyre-parse-error-data pyre-stderr) :type 'user-error))
+
 (defconst pyre-errors "[\
   {\
     \"line\": 76,\
@@ -83,5 +87,7 @@
     \"external_to_source_root\": false\
   }\
 ]")
+
+(defconst pyre-stderr "2018-09-12 01:23:30,608 DEBUG No configuration found at `.pyre_configuration.local`. 2018-09-12 01:23:30,609 DEBUG Reading configuration `.pyre_configuration`... 2018-09-12 01:23:30,609 DEBUG Found source_directories: `.` 2018-09-12 01:23:30,609 ERROR Invalid configuration: Binary at `/usr/local/bin/pyre.bin` does not exist.")
 
 ;;; flycheck-pyre-tests.el ends here

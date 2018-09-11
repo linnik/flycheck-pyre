@@ -4,7 +4,7 @@
 ;; License: MIT
 ;;
 ;; Author: Vyacheslav Linnik <vyacheslav.linnik@gmail.com>
-;; Version: 2018.09.08
+;; Version: 2018.09.12
 ;; Package-Requires: ((emacs "24") (flycheck "29"))
 ;; URL: https://github.com/linnik/flycheck-pyre
 
@@ -41,10 +41,12 @@
 (defun flycheck-pyre-parse-error-data (data)
   "Parse Pyre raw DATA into a list."
   (let* ((json-array-type 'list)
-         (mapdata (mapcar
+         (decoded-data (mapcar
                    'flycheck-pyre-read-json
                    (split-string data "\n"))))
-    (append (car mapdata) (car (cdr mapdata)))))
+    (unless (vectorp decoded-data)
+      (user-error "Failed to run Pyre:\n %s" data))
+    (car decoded-data)))
 
 (defun flycheck-pyre-read-json (str)
   "Read json from the STR."
