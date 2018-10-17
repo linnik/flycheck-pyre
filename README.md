@@ -1,4 +1,7 @@
-# flycheck-pyre
+# flycheck-pyre 
+
+[![MELPA](https://melpa.org/packages/flycheck-pyre-badge.svg)](https://melpa.org/#/flycheck-pyre)
+
 Flycheck support for the Pyre type checker
 
 ## Setup
