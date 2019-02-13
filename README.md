@@ -6,11 +6,19 @@ Flycheck support for the Pyre type checker
 
 ## Setup
 
+Install pyre and watchman
+
+```
+pip install pyre-check
+brew install watchman
+```
+
 Init Pyre and startup a background daemon.
 For more information visit [Pyre's documentation](https://pyre-check.org/docs/overview.html)
 
 ```bash
 pyre init
+pyre check
 pyre start
 ```
 
