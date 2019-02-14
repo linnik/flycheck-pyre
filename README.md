@@ -25,10 +25,17 @@ pyre start
 Add to your `.init.el`:
 
 ```elisp
+(require 'flycheck)
 (require 'flycheck-pyre)
-(add-hook 'python-mode-hook 'flycheck-mode)
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-pyre-setup))
+(defun my/configure-python-mode-flycheck-checkers ()
+  ;; configure all your checkers for python-mode here
+  (flycheck-mode)
+  (flycheck-select-checker 'python-pyre)
+  )
+(add-hook 'python-mode-hook #'my/configure-python-mode-flycheck-checkers)
+
 ```
 
 ## Troubleshooting
