@@ -30,3 +30,17 @@ Add to your `.init.el`:
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-pyre-setup))
 ```
+
+## Troubleshooting
+
+`Undefined import [21]: Could not find a module corresponding to import`
+
+If you are using a virtualenv and/or have a `.pth` files in your `site-packages` directory, then you should include these paths manually via `--search-path` when starting a daemon
+
+```
+pyre \
+    --search-path /Users/dev/.virtualenvs/env/lib/python3.7/site-packages \
+    --search-path /Users/dev/workspace/libfoo \
+    --search-path /Users/dev/workspace/libbar \
+    start
+```
