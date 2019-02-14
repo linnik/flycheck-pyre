@@ -89,7 +89,7 @@ Customize `flycheck-pyre-args` to add specific args to default
 executable."
 
   :command `(,flycheck-pyre-wrapper
-             "pyre" "--output=json"
+             "pyre" "--output=json" "--noninteractive"
              (eval flycheck-pyre-args))
   :working-directory 'flycheck-pyre-directory
   :predicate 'flycheck-pyre-directory
