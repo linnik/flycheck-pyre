@@ -4,7 +4,7 @@
 STDERR=$(mktemp)
 STDOUT=`eval "$@" 2> $STDERR`
 EXITCODE=$?
-if [ -z "$STDOUT" ] && [ $EXITCODE -ne 0]; then
+if [ -z "$STDOUT" ] && [ $EXITCODE -ne 0 ]; then
     ERR=$(cat "$STDERR")
     (>&2 echo $ERR)
 else
